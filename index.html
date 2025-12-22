@@ -1,41 +1,41 @@
-<!--
-UPDATED MARKETING PAGE
-Aligned with Ionic app theme: soft cards, inset groups, pill buttons,
-clean spacing, iOS-friendly hierarchy.
-Drop-in replacement for your current HTML.
--->
-
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avoe Planner – Your Smart Wardrobe & Outfit Planner</title>
+    <title>Avoé Planner</title>
 
     <link rel="icon" type="image/png" href="icon.png" />
     <link rel="apple-touch-icon" href="icon.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <style>
+      /* ===============================
+         APP THEME TOKENS (FROM IONIC)
+      ============================== */
       :root {
-        --bg-main: #020617;
-        --bg-soft: #0b1120;
-        --card-bg: rgba(15, 23, 42, 0.9);
-        --border: rgba(148, 163, 184, 0.18);
-        --text: #f9fafb;
-        --muted: #9ca3af;
-        --accent: #f97316;
-        --accent-soft: rgba(249, 115, 22, 0.14);
-        --radius-lg: 18px;
-        --radius-xl: 24px;
-        --shadow-card: 0 14px 34px rgba(2, 6, 23, 0.7);
+        --brand-black: #111827;
+        --brand-black-top: #2a2a2a;
+        --brand-black-bottom: #0d0d0d;
+        --brand-white: #ffffff;
+
+        --bg-soft: #f5f5f7;
+        --muted: #6b7280;
+        --muted-2: #9ca3af;
+        --stroke: rgba(0, 0, 0, 0.06);
+
+        --radius-sm: 8px;
+        --radius-md: 14px;
+        --radius-lg: 22px;
+        --radius-pill: 999px;
+
+        --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.06);
+        --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.08);
+        --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.35);
       }
 
       * {
@@ -45,25 +45,10 @@ Drop-in replacement for your current HTML.
       }
 
       body {
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-          sans-serif;
-        background: radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #020617 55%,
-          #000 100%
-        );
-        color: var(--text);
-        -webkit-font-smoothing: antialiased;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text",
+          system-ui, sans-serif;
+        background: var(--bg-soft);
+        color: var(--brand-black);
       }
 
       .page {
@@ -72,329 +57,303 @@ Drop-in replacement for your current HTML.
         padding: 20px 16px 64px;
       }
 
-      /* NAV */
+      /* ===============================
+         NAV (APP-LIKE, MINIMAL)
+      ============================== */
       .nav {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
+        justify-content: space-between;
+        margin-bottom: 24px;
       }
 
       .nav-left {
         display: flex;
         align-items: center;
         gap: 10px;
-      }
-
-      .logo-image {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-      }
-
-      .nav-title {
         font-weight: 600;
-        letter-spacing: 0.04em;
+      }
+
+      .nav-left img {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
       }
 
       .nav-links {
         display: flex;
-        gap: 18px;
-        font-size: 13px;
+        gap: 20px;
+        font-size: 14px;
         color: var(--muted);
       }
 
-      /* HERO */
+      /* ===============================
+         HERO — MATCHES DASHBOARD
+      ============================== */
       .hero {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 40px;
-        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
       }
 
-      .hero-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        font-size: 11px;
+      .hero-text small {
         color: var(--muted);
-        width: fit-content;
-      }
-
-      .hero-heading {
-        font-size: clamp(28px, 4vw, 38px);
-        font-weight: 700;
-        line-height: 1.15;
-        margin: 14px 0;
-      }
-
-      .hero-heading span {
-        background: linear-gradient(120deg, #fed7aa, var(--accent));
-        -webkit-background-clip: text;
-        color: transparent;
-      }
-
-      .hero-subtitle {
-        max-width: 460px;
         font-size: 14px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+        line-height: 1.15;
+        font-weight: 700;
+        margin: 12px 0;
+      }
+
+      .hero-text p {
+        font-size: 15px;
         line-height: 1.6;
         color: var(--muted);
+        max-width: 460px;
       }
 
-      .hero-cta {
+      .hero-actions {
         display: flex;
         gap: 12px;
-        margin-top: 22px;
+        margin-top: 20px;
       }
 
       .btn-primary {
-        border-radius: 999px;
-        padding: 10px 18px;
-        font-size: 13px;
-        font-weight: 600;
-        background: linear-gradient(135deg, #f97316, #f59e0b);
-        color: #020617;
+        background: var(--brand-black);
+        color: var(--brand-white);
         border: none;
+        border-radius: var(--radius-pill);
+        padding: 10px 18px;
+        font-weight: 600;
         cursor: pointer;
-        box-shadow: 0 14px 34px rgba(249, 115, 22, 0.55);
+        box-shadow: var(--shadow-2);
       }
 
       .btn-outline {
-        border-radius: 999px;
-        padding: 9px 16px;
-        font-size: 13px;
-        border: 1px solid var(--border);
         background: transparent;
-        color: var(--muted);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-pill);
+        padding: 10px 16px;
+        color: var(--brand-black);
         cursor: pointer;
       }
 
-      /* HERO CARD (matches app cards) */
+      /* ===============================
+         HERO CARD (DIRECT APP COPY)
+      ============================== */
       .hero-card {
-        background: var(--card-bg);
-        border-radius: var(--radius-xl);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-card);
-        padding: 16px;
+        background: linear-gradient(
+          180deg,
+          var(--brand-black-top),
+          var(--brand-black-bottom)
+        );
+        color: white;
+        border-radius: var(--radius-lg);
+        padding: 18px;
+        box-shadow: var(--shadow-strong);
       }
 
       .hero-card-header {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .hero-card-body {
-        display: flex;
-        gap: 12px;
-      }
-
-      .look-card {
-        flex: 1;
-        border-radius: 16px;
-        background: linear-gradient(180deg, #020617, #0b1120);
-        padding: 12px;
-        border: 1px solid var(--border);
-      }
-
-      .look-title {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 6px 0 8px;
-      }
-
-      .look-tags {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-      .look-tag {
-        font-size: 10px;
-        padding: 4px 8px;
-        border-radius: 999px;
-        background: var(--bg-soft);
-        border: 1px solid var(--border);
-        color: var(--muted);
-      }
-
-      .hero-side {
-        display: flex;
-        flex-direction: column;
+        align-items: center;
         gap: 10px;
-        min-width: 120px;
+        margin-bottom: 14px;
       }
 
-      .stat-pill {
-        padding: 10px;
-        border-radius: 14px;
-        background: var(--bg-soft);
-        border: 1px solid var(--border);
-        font-size: 11px;
-        color: var(--muted);
-        display: flex;
-        justify-content: space-between;
+      .hero-card-header img {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
       }
 
-      /* SECTIONS */
-      .section {
-        margin-top: 56px;
+      .hero-card-header strong {
+        font-size: 16px;
       }
 
-      .section-title {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 10px;
+      .hero-card-header span {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
       }
 
-      .section-subtitle {
-        font-size: 12px;
-        color: var(--muted);
-        max-width: 420px;
-      }
-
-      .features-grid {
-        margin-top: 18px;
+      .stats {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 16px;
-      }
-
-      .feature-card {
-        background: var(--card-bg);
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
         padding: 14px;
       }
 
-      .feature-title {
-        font-size: 13px;
+      .stat {
+        text-align: center;
+      }
+
+      .stat span {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 20px;
+        margin-top: 4px;
+      }
+
+      /* ===============================
+         SECTIONS — APP STYLE CARDS
+      ============================== */
+      .section {
+        margin-top: 48px;
+      }
+
+      .section h2 {
+        font-size: 20px;
         font-weight: 600;
         margin-bottom: 6px;
       }
 
-      .feature-text {
-        font-size: 11px;
+      .section p {
+        font-size: 14px;
         color: var(--muted);
-        line-height: 1.6;
       }
 
-      /* FOOTER */
-      .footer {
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        box-shadow: var(--shadow-1);
+        border: 1px solid var(--stroke);
+      }
+
+      .card h3 {
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+
+      .card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* ===============================
+         FOOTER
+      ============================== */
+      footer {
         margin-top: 64px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
+        font-size: 13px;
+        color: var(--muted);
         display: flex;
         justify-content: space-between;
-        font-size: 11px;
-        color: var(--muted);
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
       }
 
-      @media (max-width: 860px) {
+      @media (max-width: 900px) {
         .hero {
+          grid-template-columns: 1fr;
+        }
+        .card-grid {
           grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
+
   <body>
     <div class="page">
+      <!-- NAV -->
       <header class="nav">
         <div class="nav-left">
-          <img src="icon.png" class="logo-image" />
-          <div class="nav-title">Avoe Planner</div>
+          <img src="icon.png" />
+          Avoé Planner
         </div>
         <nav class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#download">Download</a>
+          <span>Download</span>
         </nav>
       </header>
 
-      ```
+      <!-- HERO -->
       <section class="hero">
-        <div>
-          <div class="hero-pill">Your wardrobe, organised</div>
-          <h1 class="hero-heading">
-            Plan outfits from<br /><span>what you already own</span>
-          </h1>
-          <p class="hero-subtitle">
-            Store your clothes digitally, build outfits, and plan your week
+        <div class="hero-text">
+          <small>Your wardrobe, organised</small>
+          <h1>Plan outfits from<br />what you already own</h1>
+          <p>
+            Store your wardrobe digitally, build outfits, and plan your week
             without the daily “what should I wear?” stress.
           </p>
-          <div class="hero-cta">
-            <button class="btn-primary">Get Avoe Planner</button>
+
+          <div class="hero-actions">
+            <button class="btn-primary">Get Avoé Planner</button>
             <button class="btn-outline">See how it works</button>
           </div>
         </div>
 
+        <!-- APP STYLE CARD -->
         <div class="hero-card">
-          <div class="hero-card-header">Today’s outfit</div>
-          <div class="hero-card-body">
-            <div class="look-card">
-              <div class="look-title">Beige blazer & dark jeans</div>
-              <div class="look-tags">
-                <span class="look-tag">From your closet</span>
-                <span class="look-tag">Smart casual</span>
-              </div>
+          <div class="hero-card-header">
+            <img src="icon.png" />
+            <div>
+              <strong>Avoé</strong><br />
+              <span>Plan outfits. Save time. Look great.</span>
             </div>
-            <div class="hero-side">
-              <div class="stat-pill">
-                <span>Items saved</span><strong>63</strong>
-              </div>
-              <div class="stat-pill">
-                <span>Looks planned</span><strong>4</strong>
-              </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span>Wardrobe</span>
+              <strong>22</strong>
+            </div>
+            <div class="stat">
+              <span>Outfits</span>
+              <strong>7</strong>
+            </div>
+            <div class="stat">
+              <span>Favourites</span>
+              <strong>4</strong>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="features" class="section">
-        <h2 class="section-title">Why Avoe Planner</h2>
-        <p class="section-subtitle">
-          A calm, private place to manage your wardrobe and outfits.
-        </p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-title">Digital wardrobe</div>
-            <p class="feature-text">
-              All your clothes organised and searchable.
-            </p>
+      <!-- WHY -->
+      <section class="section">
+        <h2>Why Avoé Planner</h2>
+        <p>A calm, private place to manage your wardrobe and outfits.</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Digital wardrobe</h3>
+            <p>All your clothes organised and searchable.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-title">Outfit builder</div>
-            <p class="feature-text">
-              Mix, match and save combinations you love.
-            </p>
+          <div class="card">
+            <h3>Outfit builder</h3>
+            <p>Mix, match and save combinations you love.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-title">Weekly planning</div>
-            <p class="feature-text">
-              Decide what to wear before the day starts.
-            </p>
+          <div class="card">
+            <h3>Weekly planning</h3>
+            <p>Decide what to wear before the day starts.</p>
           </div>
         </div>
       </section>
 
-      <footer class="footer">
-        <span
-          >©
-          <script>
-            document.write(new Date().getFullYear());
-          </script>
-          Avoe Planner</span
-        >
+      <!-- FOOTER -->
+      <footer>
+        <span>© 2025 Avoé Planner</span>
         <span>avoeplanner@gmail.com</span>
       </footer>
-      ```
     </div>
   </body>
 </html>
